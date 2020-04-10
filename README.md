@@ -1,5 +1,5 @@
 # NessusSaxParser
-Parse XML Nessus report for version 2.0 of .nessus file.
+Parse XML Nessus report for version 3.0 of .nessus file.
 
 ## Dependency
 nokogiri
@@ -22,7 +22,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+create the following script importing nessus_sax_parser:
+```ruby
+    doc = NessusSaxParser::MyDocument.new
+    parser = Nokogiri::XML::SAX::Parser.new(doc)
+
+    parser.parse_file(<your_nessus_fileV3_with_path>)
+
+    all_nessusid = doc.plugin_set
+    all_targets = doc.targets
+    puts all_nessusid
+    puts all_targets
+```
+    
 
 ## Development
 
